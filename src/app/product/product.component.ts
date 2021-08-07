@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
+import { SweetAlertService } from '../services/sweet-alert.service';
 import { Product } from './product';
 
 @Component({
@@ -9,7 +9,7 @@ import { Product } from './product';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sweetAlertService:SweetAlertService) { }
 
   title = "Ürün Listesi";
   filterText = "";
@@ -27,13 +27,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(product){
-    Swal.fire({
-      position: 'top-right',
-      icon: 'success',
-      title: product.description + " başarıyla sepetinize eklendi!'",
-      showConfirmButton: false,
-      timer: 1500
-    })
+    this.sweetAlertService.success(product.description + " sepete başarıyla eklendi!");
   }
 
 }
