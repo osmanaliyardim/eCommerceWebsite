@@ -9,13 +9,35 @@ export class SweetAlertService {
 
   constructor() { }
 
-  success(message:string){
-        // SweetAlert2 kullanımı
-        Swal.fire({
-          icon: 'success',
-          title: message,
-          showConfirmButton: false,
-          timer: 1500
-        })
+  //default başarılı alerti
+  success(message: string) {
+    // SweetAlert2 kullanımı
+    Swal.fire({
+      icon: 'success',
+      title: message,
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
+
+  //default hata alerti
+  error(message: string) {
+    Swal.fire({
+      icon: 'error',
+      title: message,
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+    //default uyarı alerti
+    warning(message: string) {
+      Swal.fire({
+        icon: 'warning',
+        title: message,
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+
 }
