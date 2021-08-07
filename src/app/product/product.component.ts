@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { Product } from './product';
 
 @Component({
@@ -26,7 +27,13 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(product){
-    
+    Swal.fire({
+      position: 'top-right',
+      icon: 'success',
+      title: product.description + " başarıyla sepetinize eklendi!'",
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
 }
