@@ -17,8 +17,8 @@ export class ProductService {
   //Data dönene kadar bir çok işlem üzerinde uygulanabilir
   //İstenen fonksiyonlarla subscribe olunana kadar
   //İstenen her işlem uygulanabilir (loglama, hata yakalama gibi)
-  getProducts():Observable<Product[]>{
-    return this.http.get<Product[]>(this.url).pipe(
+  getProducts(categoryId):Observable<Product[]>{
+    return this.http.get<Product[]>(this.url + "?categoryId=" + categoryId).pipe(
       // Log alıyorum
       tap(data => console.log(JSON.stringify(data))),
       // Hata varsa hatayı döndürüyorum

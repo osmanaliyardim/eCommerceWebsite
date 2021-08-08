@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { SweetAlertService } from '../services/sweet-alert.service';
 import { Product } from './product';
@@ -13,16 +14,22 @@ import { Product } from './product';
 export class ProductComponent implements OnInit {
 
   constructor(private sweetAlertService: SweetAlertService,
-    private productService:ProductService) { }
+    private productService:ProductService,
+    private activatedRoute:ActivatedRoute) { }
 
   title = "Ürün Listesi";
   filterText = "";
   products: Product[];
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(data=>{
-      this.products = data;
-    })
+
+    this.activatedRoute.params.subscribe(params =>{
+      this.productService.getProducts(params["categoryId"]).subscribe(data=>{
+        this.products = data;
+      });
+    });
+
+
   }
 
   addToCart(product) {
