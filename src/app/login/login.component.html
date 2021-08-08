@@ -1,27 +1,26 @@
 <body class="text-center">
-    <main class="form-signin">
-        <form>
-            <img class="mb-4" src="https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt="" width="200" height="150">
-            <h1 class="h3 mb-3 fw-normal">Giriş Yap</h1>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="form-signin">
+        <img class="mb-4" src="https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" width="200" height="150">
+        <h1 class="h3 mb-3 fw-normal">Sistem Giriş Ekranı</h1>
 
-            <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
-            </div>
+        <div class="form-floating">
+            <input type="text" #userName="ngModel" [(ngModel)]="model.userName" class="form-control" id="userName" name="userName" placeholder="Kullanıcı Adı" required autofocus>
+            <label for="floatingInput">Kullanıcı Adı</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" #password="ngModel" [(ngModel)]="model.password" class="form-control" id="password" name="password" placeholder="Şifre" required>
+            <label for="password">Şifre</label>
+        </div>
 
-            <!--
+        <!--
             <div class="checkbox mb-3">
                 <label>
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
             -->
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-            <p class="mt-5 mb-3 text-muted">&copy; 2021 - Osman Ali YARDIM</p>
-        </form>
-    </main>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Giriş Yap</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2021 - Osman Ali YARDIM</p>
+    </form>
+
 </body>

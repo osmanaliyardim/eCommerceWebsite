@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login/login.guard';
 import { ProductAddClassicFormComponent } from './product/product-add-classic-form/product-add-classic-form.component';
 import { ProductAddReactiveFormComponent } from './product/product-add-reactive-form/product-add-reactive-form.component';
 import { ProductComponent } from './product/product.component';
@@ -13,8 +14,8 @@ const routes: Routes = [
   {path:"", redirectTo:"products", pathMatch:"full"},
   // dinamik parametre :categoryId gibi tanımlanır
   {path:"products/category/:categoryId", component:ProductComponent},
-  {path:"product-add-classicForm", component:ProductAddClassicFormComponent},
-  {path:"product-add-reactiveForm", component:ProductAddReactiveFormComponent},
+  {path:"product-add-classicForm", component:ProductAddClassicFormComponent, canActivate:[LoginGuard]},
+  {path:"product-add-reactiveForm", component:ProductAddReactiveFormComponent, canActivate:[LoginGuard]},
   {path:"login", component:LoginComponent}
 ];
 
