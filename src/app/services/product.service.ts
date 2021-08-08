@@ -18,12 +18,21 @@ export class ProductService {
   //İstenen fonksiyonlarla subscribe olunana kadar
   //İstenen her işlem uygulanabilir (loglama, hata yakalama gibi)
   getProducts(categoryId):Observable<Product[]>{
-    return this.http.get<Product[]>(this.url + "?categoryId=" + categoryId).pipe(
+
+    let newPath = this.url;
+
+    // Eğer bir parametre varsa url'e ekle
+    if(categoryId){
+      newPath = newPath + "?categoryId=" + categoryId;
+    }
+    
+    return this.http.get<Product[]>(newPath).pipe(
       // Log alıyorum
       tap(data => console.log(JSON.stringify(data))),
       // Hata varsa hatayı döndürüyorum
       catchError(this.handleError)
     );
+
   }
 
   handleError(err : HttpErrorResponse){

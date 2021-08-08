@@ -29,7 +29,6 @@ export class ProductComponent implements OnInit {
       });
     });
 
-
   }
 
   addToCart(product) {

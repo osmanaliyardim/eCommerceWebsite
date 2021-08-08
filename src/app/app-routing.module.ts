@@ -9,7 +9,9 @@ const routes: Routes = [
   // pathMatch: url'in kesinlikle boş olduğundan emin olmak için
   {path:"", redirectTo:"products", pathMatch:"full"},
   // dinamik parametre :categoryId gibi tanımlanır
-  {path:"products/category/:categoryId", component:ProductComponent}
+  {path:"products/category/:categoryId", component:ProductComponent},
+  {path:"product-add-1", component:ProductComponent},
+  {path:"product-add-2", component:ProductComponent}
 ];
 
 @NgModule({
