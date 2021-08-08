@@ -1,6 +1,6 @@
 <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
-        <a class="list-group-item active" routerLink="products">Tüm Ürünler</a>
+        <a class="list-group-item active" routerLink="/products">Tüm Ürünler</a>
         <a class="p-2 link-secondary" *ngFor="let category of categories"
             routerLink="/products/category/{{category.id}}">{{category.name}}</a>
     </nav>
